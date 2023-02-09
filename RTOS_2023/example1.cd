@@ -1,0 +1,51 @@
+#include <avr/io.h>
+#include "FreeRTOS.h"
+#include "task.h"
+
+
+void Task1_Func(void);
+TaskHandle_t task1ptr;
+
+void Task2_Func(void);
+TaskHandle_t task2ptr;
+
+
+int main(void)
+{
+	DDRC  = 0xFF;	// Configure all PORTC pins as output pins
+	
+
+	xTaskCreate(Task1_Func,"first",configMINIMAL_STACK_SIZE,NULL,0,&task1ptr);
+	xTaskCreate(Task2_Func,"second",configMINIMAL_STACK_SIZE,NULL,0,&task2ptr);
+
+	vTaskStartScheduler();
+	while(1)
+	{
+
+
+	}
+}
+
+
+void Task1_Func(void)
+{
+	while(1)
+	{
+		PORTC ^= (1u<<5);
+		for(int i =0 ; i<5000 ; i++);
+		
+
+	}
+}
+
+
+
+void Task2_Func(void)
+{
+	
+	while(1)
+	{
+		PORTC ^= (1u<<3);
+		for(int j =0 ; j<5000; j++);
+	}
+}

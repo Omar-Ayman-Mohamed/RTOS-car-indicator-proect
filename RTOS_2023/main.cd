@@ -1,0 +1,70 @@
+#include <avr/io.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
+
+
+
+
+void Func3(void);
+void Func4(void);
+
+
+unsigned char arr[2]= {0,0};
+
+SemaphoreHandle_t xSemaphore;
+
+
+int main(void)
+{
+	DDRC  = 0xFF;	// Configure all PORTC pins as output pins
+
+
+	vSemaphoreCreateBinary( xSemaphore );
+
+
+	xTaskCreate(Func3,"first",configMINIMAL_STACK_SIZE,NULL,1,&task1ptr);
+	xTaskCreate(Func4,"second",configMINIMAL_STACK_SIZE,NULL,1,&task2ptr);
+
+	vTaskStartScheduler();
+	while(1)
+	{
+
+
+	}
+}
+
+
+/*Shared data problem*/
+void Func3(void)
+{
+	while(1){
+		vTaskSuspendAll();; //Disable task switching
+		//taskENTER_CRITICAL(); //Disable all interrupts
+		//xSemaphoreTake( xSemaphore, 10 );
+		arr[0] = 10;
+		for(int i =0; i<50000000;i++);//vTaskDelay(10);
+		arr[1] = 10;
+		//xSemaphoreGive( xSemaphore );
+		//xTaskResumeAll();;  //enable task switching
+		//taskEXIT_CRITICAL();  //enable all interrupts
+	}
+}
+
+void Func4(void)
+{
+	while(1){
+		vTaskDelay(5);
+		//taskENTER_CRITICAL(); //Disable all interrupts
+		//xSemaphoreTake( xSemaphore, 10 );
+		if (arr[0] != arr[1]){
+			PORTC ^= (1u<<1);
+		}
+		//xSemaphoreGive( xSemaphore );
+		//taskEXIT_CRITICAL();  //enable all interrupts
+	}
+}
+
+
+

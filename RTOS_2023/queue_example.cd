@@ -1,0 +1,63 @@
+#include <avr/io.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+
+void Task1_Func(void);
+TaskHandle_t task1ptr;
+
+void Task2_Func(void);
+TaskHandle_t task2ptr;
+
+QueueHandle_t xQueue;
+
+int main(void)
+{
+	DDRC  = 0xFF;	// Configure all PORTC pins as output pins
+
+	xQueue = xQueueCreate( 10, sizeof(char) );
+	xTaskCreate(Task1_Func,"first",configMINIMAL_STACK_SIZE,NULL,0,&task1ptr);
+	xTaskCreate(Task2_Func,"second",configMINIMAL_STACK_SIZE,NULL,0,&task2ptr);
+
+	vTaskStartScheduler();
+	while(1)
+	{
+
+
+	}
+}
+
+
+void Task1_Func(void)
+{
+	char var1;
+	while(1)
+	{
+		xQueueReceive( xQueue, &var1, portMAX_DELAY );
+		if (var1 == 1){
+			PORTC ^= (1u<<5);
+		}
+		
+		vTaskDelay( 30 );//pdMS_TO_TICKS( 20 )
+
+	}
+}
+
+
+
+void Task2_Func(void)
+{
+	TickType_t xLastWakeTime;
+	const TickType_t xPeriod = 30 ;//pdMS_TO_TICKS( 50 );
+	xLastWakeTime = xTaskGetTickCount();
+	
+	char var2 = 1;
+	while(1)
+	{
+	
+		
+		xQueueSendToBack( xQueue, &var2, 10 );
+		vTaskDelayUntil( &xLastWakeTime, xPeriod );
+	}
+}
