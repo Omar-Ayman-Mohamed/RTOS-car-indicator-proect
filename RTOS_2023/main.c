@@ -59,7 +59,7 @@ int main(void)
 	                     "Timer_button",
 	                     /* The timer period in ticks, must be
 	                     greater than 0. */
-						 10,
+						 5,
 	                     /* The timers will auto-reload themselves
 	                     when they expire. */
 	                     pdTRUE,
@@ -91,7 +91,7 @@ int main(void)
 		                   );
 	xTaskCreate(vState_machine,"first",configMINIMAL_STACK_SIZE,NULL,1,&task1ptr);
 	xTimerStart(xButtonTimer, 10 );
-	xTimerStart(xLedBlinkingTimer, 20 );
+	xTimerStart(xLedBlinkingTimer, 10 );
 	vTaskStartScheduler();
 	while(1)
 	{
@@ -177,6 +177,7 @@ void get_readings(void)
 					R_button = 1;
 					Hazzred_button = 0;
 					L_button = 0;
+					DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
 				}
 			}
 			else if(left_data){////
@@ -187,16 +188,20 @@ void get_readings(void)
 					L_button = 1;
 					R_button = 0;
 					Hazzred_button = 0;
+					DIO_SetPinVal(DIO_PORTC , Pin6 , LOW);
 
 				}
 			}
 			else{
+				DIO_SetPinVal(DIO_PORTC , Pin6 , LOW);
+				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
 				hazzred_button_pressed_counter=0;
 				right_button_pressed_counter=0;
 				left_button_pressed_counter=0;
 				L_button = 0;
 				R_button = 0;
 				Hazzred_button = 0;
+
 			}
 		}
 //	}
@@ -210,7 +215,7 @@ void vState_machine(void)
 
 		if(ignition_button){
 
-//			DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
+
 			if(Hazzred_button){
 //				DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
 				vBlink_Right();
@@ -218,13 +223,13 @@ void vState_machine(void)
 //				DIO_SetPinVal(DIO_PORTC , Pin3 , HIGH);
 			}
 			else if(R_button ){
-				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+//				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
 				vBlink_Right();
 
 
 			}
 			else if(L_button ){
-				DIO_SetPinVal(DIO_PORTC , Pin6, LOW);
+//				DIO_SetPinVal(DIO_PORTC , Pin6, LOW);
 				Blink_LEFT();
 
 			}

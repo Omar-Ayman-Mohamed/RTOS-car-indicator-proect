@@ -148,7 +148,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x6650
+.text           0x00000000     0x6664
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -627,48 +627,48 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00006320       0x26 ./main.o
                 0x00006320                toggle_led_mode
  .text.get_readings
-                0x00006346      0x14e ./main.o
+                0x00006346      0x176 ./main.o
                 0x00006346                get_readings
  .text.vState_machine
-                0x00006494       0x52 ./main.o
-                0x00006494                vState_machine
+                0x000064bc       0x3e ./main.o
+                0x000064bc                vState_machine
  .text.vBlink_Right
-                0x000064e6       0x2c ./main.o
-                0x000064e6                vBlink_Right
+                0x000064fa       0x2c ./main.o
+                0x000064fa                vBlink_Right
  .text.Blink_LEFT
-                0x00006512       0x2c ./main.o
-                0x00006512                Blink_LEFT
+                0x00006526       0x2c ./main.o
+                0x00006526                Blink_LEFT
  .text.READ_IGNITON
-                0x0000653e       0x28 ./main.o
-                0x0000653e                READ_IGNITON
+                0x00006552       0x28 ./main.o
+                0x00006552                READ_IGNITON
  .text.READ_HAZARD_Button
-                0x00006566       0x28 ./main.o
-                0x00006566                READ_HAZARD_Button
+                0x0000657a       0x28 ./main.o
+                0x0000657a                READ_HAZARD_Button
  .text.READ_RIGHT_Button
-                0x0000658e       0x28 ./main.o
-                0x0000658e                READ_RIGHT_Button
+                0x000065a2       0x28 ./main.o
+                0x000065a2                READ_RIGHT_Button
  .text.READ_LEFT_Button
-                0x000065b6       0x28 ./main.o
-                0x000065b6                READ_LEFT_Button
- .text.libgcc   0x000065de       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000065de                __udivmodhi4
- .text.libgcc   0x00006606       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
-                0x00006606                __divmodhi4
-                0x00006606                _div
- .text.libgcc   0x0000662c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000662c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000662c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000065ca       0x28 ./main.o
+                0x000065ca                READ_LEFT_Button
+ .text.libgcc   0x000065f2       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x000065f2                __udivmodhi4
+ .text.libgcc   0x0000661a       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+                0x0000661a                __divmodhi4
+                0x0000661a                _div
+ .text.libgcc   0x00006640        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00006640        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00006640        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x0000662c       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x0000662c                memcpy
+                0x00006640       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x00006640                memcpy
  .text.avr-libc
-                0x0000663e        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
-                0x0000663e                memset
-                0x0000664c                . = ALIGN (0x2)
+                0x00006652        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x00006652                memset
+                0x00006660                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000664c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000664c                exit
-                0x0000664c                _exit
+ .fini9         0x00006660        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00006660                exit
+                0x00006660                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -687,11 +687,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000664c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00006660        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00006650                _etext = .
+                0x00006664                _etext = .
 
-.data           0x00800060       0x2c load address 0x00006650
+.data           0x00800060       0x2c load address 0x00006664
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -859,8 +859,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800731                left_button_pressed_counter
                 0x00800733                right_button_pressed_counter
                 0x00800735                PROVIDE (__bss_end, .)
-                0x00006650                __data_load_start = LOADADDR (.data)
-                0x0000667c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00006664                __data_load_start = LOADADDR (.data)
+                0x00006690                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800735        0x0
                 0x00800735                PROVIDE (__noinit_start, .)
@@ -885,7 +885,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x94d4
+.stab           0x00000000     0x94ec
  *(.stab)
  .stab          0x00000000      0x7d4 ./Source/portable/MemMang/heap_1.o
  .stab          0x000007d4      0x840 ./Source/portable/GCC/ATMega323/port.o
@@ -908,8 +908,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                 0x3cc (size before relaxing)
  .stab          0x00008970      0x33c ./TIMER.o
                                 0x5ac (size before relaxing)
- .stab          0x00008cac      0x828 ./main.o
-                                0xcd8 (size before relaxing)
+ .stab          0x00008cac      0x840 ./main.o
+                                0xcf0 (size before relaxing)
 
 .stabstr        0x00000000     0x5e12
  *(.stabstr)
