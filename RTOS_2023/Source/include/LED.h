@@ -8,6 +8,11 @@
 #ifndef SOURCE_INCLUDE_HAL_LED_H_
 #define SOURCE_INCLUDE_HAL_LED_H_
 
-
+#include "stddef.h"
+#include "DIO.h"
+void vBlink_Right(char led_mode );
+void Blink_LEFT(char led_mode);
+void Stop_Blinking_Right(void);
+void Stop_Blinking_Left(void);
 
 #endif /* SOURCE_INCLUDE_HAL_LED_H_ */
