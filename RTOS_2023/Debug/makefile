@@ -37,8 +37,14 @@ endif
 LSS += \
 RTOS_2023.lss \
 RTOS_2023.lss \
+RTOS_2023.lss \
+RTOS_2023.lss \
+RTOS_2023.lss \
 
 SIZEDUMMY += \
+sizedummy \
+sizedummy \
+sizedummy \
 sizedummy \
 sizedummy \
 
