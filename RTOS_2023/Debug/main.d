@@ -13,7 +13,8 @@ main.o main.o: ../main.c \
   D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/DIO.h \
   D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/STD_TYPES.h \
   D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/BIT_MATH.h \
-  D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/DIO_private.h
+  D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/DIO_private.h \
+  D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/PWM.h
 
 D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/FreeRTOS.h:
 
@@ -44,3 +45,5 @@ D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/STD_TYPES.h:
 D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/BIT_MATH.h:
 
 D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/DIO_private.h:
+
+D:\RTOS_2023\RTOS-car-indicator-proect\RTOS_2023\Source\include/PWM.h:
