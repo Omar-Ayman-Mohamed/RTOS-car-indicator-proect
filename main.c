@@ -187,6 +187,11 @@ void get_readings(void)
 					Hazzred_button = 0;
 					L_button = 0;
 					DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+					/*TCCR1B &=~ (1<<CS12);
+					TCCR1B &=~ (1<<CS11);
+					TCCR1B &=~ (1<<CS10);*/
+					TCCR2 &=~ (1<<COM21);
+					TCCR2 &=~ (1<<CS20);
 				}
 			}
 			else if(left_data){////
@@ -198,6 +203,8 @@ void get_readings(void)
 					R_button = 0;
 					Hazzred_button = 0;
 					DIO_SetPinVal(DIO_PORTC , Pin6 , LOW);
+					TCCR0 &=~ (1<<COM01);
+					TCCR0 &=~ (1<<CS00);
 
 				}
 			}
@@ -206,6 +213,11 @@ void get_readings(void)
 				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
 				TCCR0 &=~ (1<<COM01);
 				TCCR0 &=~ (1<<CS00);
+				TCCR2 &=~ (1<<COM21);
+				TCCR2 &=~ (1<<CS20);
+				/*TCCR1B &=~ (1<<CS12);
+				TCCR1B &=~ (1<<CS11);
+				TCCR1B &=~ (1<<CS10);*/
 				hazzred_button_pressed_counter=0;
 				right_button_pressed_counter=0;
 				left_button_pressed_counter=0;
@@ -249,11 +261,11 @@ void vState_machine(void)
 	}
 }
 void vBlink_Right(void ){
-	DDRB|=(1<<PB3);
+	/*DDRB|=(1<<PB3);*/
+	DIO_SetPinDir(DIO_PORTB ,Pin3, OUTPUT);
 //	while(1){
 //		DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
 	/*Timer0_Start();*/
-	/*DIO_SetPinDir(DIO_PORTB ,Pin3, OUTPUT);*/
 		if(led_mode){
 			/*TIMER0_PWM_Start();*/
 			TCCR0 = (1<<WGM00) | (1<<WGM01) | (1<<COM01) | (1<<CS00);
@@ -273,6 +285,7 @@ void vBlink_Right(void ){
 }
 
 void Blink_LEFT(void){
+	DIO_SetPinDir(DIO_PORTD ,Pin7, OUTPUT);
 	/*if(RIGHT_STATE == NOT_PRESSED){
 	 TIMER1_PWM_STOP();
 	 }*/
@@ -286,10 +299,18 @@ void Blink_LEFT(void){
 //		DIO_SetPinVal(DIO_PORTC , Pin3 , HIGH);
 		if(led_mode){
 			/*TIMER1_PWM_STOP();*/
+			TCCR2 = (1<<WGM20) | (1<<WGM21) | (1<<COM21) | (1<<CS20);
+			OCR2 = 204;
+
 			DIO_SetPinVal(DIO_PORTC , Pin3 , HIGH);
 		}else{
 			/*TIMER1_PWM_START();*/
+
 			DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+			TCCR2 &=~ (1<<COM21);
+			TCCR2 &=~ (1<<CS20);
+
+
 		}
 //	}
 }
