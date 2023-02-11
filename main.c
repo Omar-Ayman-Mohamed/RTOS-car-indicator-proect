@@ -1,52 +1,74 @@
 #include <avr/io.h>
 #include "FreeRTOS.h"
 #include "task.h"
-#include "semphr.h"
-#include "DIO.h"
+#include "timers.h"
 #include"TIMER.h"
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
+#include "stddef.h"
+#include "DIO.h"
 
 
+
+
+/*add timer config to freertosconfiq */
+
+/*void Task1_Func(void);
+TaskHandle_t task1 ;
+void Task2_Func(void);
+TaskHandle_t task2 ;
+void Task3_Func(void);
+TaskHandle_t task3 ;*/
+void vBlink_Right(void );
+void Blink_LEFT(void);
+/*uint8_t READ_IGNITON(void);
+uint8_t READ_HAZARD_Button(void);
+uint8_t READ_RIGHT_Button(void);
+uint8_t READ_LEFT_Button(void);*/
 unsigned char arr[2]= {0,0};
 
-SemaphoreHandle_t xSemaphore;
+
 TimerHandle_t xButtonTimer = NULL;
 TimerHandle_t xLedBlinkingTimer = NULL;
 
-char ignition_button,R_button, L_button, Hazzred_button , led_mode = 0;
-
-
-//char valid_press= 0;
-//led_right_blinking_counter,led_left_blinking_counter
-
+char R_button, L_button, Hazzred_button , led_mode = 0;
+int right_button_pressed_counter,left_button_pressed_counter,hazzred_button_pressed_counter=0;
+uint8_t ignition_button=0;
 void get_readings(void);
 TaskHandle_t task1ptr;
 
-void State_machine(void);
+void vState_machine(void);
 void toggle_led_mode(void);
 
 TaskHandle_t task2ptr;
-/*edit 5/2/2023 21:02pm author : omar */
-void Blink_Right(void);
-void Blink_LEFT(void);
-char READ_IGNITON(void);
-char READ_HAZARD_Button(void);/*instead of void it can take pin number  */
-char READ_RIGHT_Button(void);
-char READ_LEFT_Button(void);
-/*                                  */
 
 int main(void)
 {
-	DDRA  = 0xFF;	// Configure all PORTA pins as output pins
-	xTaskCreate(State_machine,"first",configMINIMAL_STACK_SIZE,NULL,1,&task1ptr);
+
+	/*Timer0_INIT();*/
+	/*Timer0_Start();*/
+
+
+/*	TimerHandle_t xTimer = xTimerCreate("timer1",10,pdTRUE,1,Task1_Func);
+	TimerHandle_t xTimer2 = xTimerCreate("timer2",50,pdTRUE,1,Task2_Func);
+	TimerHandle_t xTimer3 = xTimerCreate("timer2",100,pdTRUE,1,Task3_Func); */
+/*	xTaskCreate(Task1_Func,"task1",configMINIMAL_STACK_SIZE,NULL,0,&task1);
+	xTaskCreate(Task2_Func,"task2",configMINIMAL_STACK_SIZE,NULL,0,&task2);
+	xTaskCreate(Task3_Func,"task3",configMINIMAL_STACK_SIZE,NULL,2,&task3);*/
+
+/*	xTimerStart(xTimer, 10 );
+	xTimerStart(xTimer2, 50 );
+	xTimerStart(xTimer3, 100 );
+*/
+//	xTaskCreate(vState_machine,"first",configMINIMAL_STACK_SIZE,NULL,1,&task1ptr);
+	/*Timer0_INIT();
+	Timer0_Start();
+	DIO_SetPinDir(DIO_PORTB ,Pin3, OUTPUT);*/
 	xButtonTimer = xTimerCreate
 	                   ( /* Just a text name, not used by the RTOS
 	                     kernel. */
 	                     "Timer_button",
 	                     /* The timer period in ticks, must be
 	                     greater than 0. */
-						 ( 5 / portTICK_PERIOD_MS),
+						 5,
 	                     /* The timers will auto-reload themselves
 	                     when they expire. */
 	                     pdTRUE,
@@ -64,7 +86,7 @@ int main(void)
 		                     "Timer_led",
 		                     /* The timer period in ticks, must be
 		                     greater than 0. */
-							 ( 500 / portTICK_PERIOD_MS),
+							  500 ,
 		                     /* The timers will auto-reload themselves
 		                     when they expire. */
 		                     pdTRUE,
@@ -76,7 +98,9 @@ int main(void)
 		                     it expires. */
 							 toggle_led_mode
 		                   );
-
+	xTaskCreate(vState_machine,"first",configMINIMAL_STACK_SIZE,NULL,1,&task1ptr);
+	xTimerStart(xButtonTimer, 10 );
+	xTimerStart(xLedBlinkingTimer, 10 );
 	vTaskStartScheduler();
 	while(1)
 	{
@@ -85,125 +109,219 @@ int main(void)
 	}
 }
 
-void toggle_led_mode(void){
-	led_mode = !led_mode;
-}
 
-void get_readings(void)
+/*void Task1_Func(void)
 {
-	int right_button_pressed_counter,left_button_pressed_counter,hazzred_button_pressed_counter=0;
 	while(1)
 	{
-		ignition_button = readIgnitionButton(); ////
-		if(ignition_button){
+		PORTC ^= (1u<<5);
+		vTaskDelay( 50 );//pdMS_TO_TICKS( 20 )
 
-			if(readHazzredButton()){////
-				hazzred_button_pressed_counter++;
+	}
+}*/
+
+/*void Task3_Func(void){
+	/*while(1){
+		PORTC ^= (1u<<6);
+	vTaskDelay( 100 );//pdMS_TO_TICKS( 20 )
+	}
+
+}*/
+
+/*void Task2_Func(void)
+{
+	/*TickType_t xLastWakeTime;
+	const TickType_t xPeriod = pdMS_TO_TICKS( 50 );
+	xLastWakeTime = xTaskGetTickCount();*/
+
+	/*while(1)*//*{
+		PORTC ^= (1u<<3);
+		/*vTaskDelay( 200 );
+	}*/
+	/*	vTaskDelayUntil( &xLastWakeTime, xPeriod );*/
+
+/*}*/
+
+void toggle_led_mode(void){
+//	while(1){
+		led_mode = !led_mode;
+//	}
+
+}
+void get_readings(void)
+{
+
+
+
+//	while(1)
+//	{
+
+		ignition_button = READ_IGNITON(); ////
+//		DIO_SetPinVal(DIO_PORTC , Pin4 , HIGH);
+//		ignition_button = 1; ////
+		if(!ignition_button){
+			uint8_t hazard_data = READ_HAZARD_Button();
+//			hazard_data=1;
+			uint8_t right_data = READ_RIGHT_Button();
+//			char right_data = 0;
+			uint8_t left_data = READ_LEFT_Button();
+			if(hazard_data){////
+			/*	hazzred_button_pressed_counter++;
 				right_button_pressed_counter=0;
 				left_button_pressed_counter=0;
-				if(!(hazzred_button_pressed_counter%10)){
+*/
+	/*			if(!(hazzred_button_pressed_counter%10)){*/
 					Hazzred_button = 1;
-				}
+					L_button = 0;
+					R_button = 0;
+
+//					DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
+				/*}*/
 			}
-			else if(readRightButton()){////
+			else if(right_data){////
 				right_button_pressed_counter++;
 				hazzred_button_pressed_counter=0;
 				left_button_pressed_counter=0;
 				if(!(right_button_pressed_counter%10)){
 					R_button = 1;
+					Hazzred_button = 0;
+					L_button = 0;
+					DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
 				}
 			}
-			else if(readLeftButton()){////
+			else if(left_data){////
 				left_button_pressed_counter++;
 				hazzred_button_pressed_counter=0;
 				right_button_pressed_counter=0;
 				if(!(left_button_pressed_counter%10)){
 					L_button = 1;
+					R_button = 0;
+					Hazzred_button = 0;
+					DIO_SetPinVal(DIO_PORTC , Pin6 , LOW);
+
 				}
 			}
+			else{
+				DIO_SetPinVal(DIO_PORTB , Pin3 , LOW);
+				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+				TCCR0 &=~ (1<<COM01);
+				TCCR0 &=~ (1<<CS00);
+				hazzred_button_pressed_counter=0;
+				right_button_pressed_counter=0;
+				left_button_pressed_counter=0;
+				L_button = 0;
+				R_button = 0;
+				Hazzred_button = 0;
+
+			}
 		}
-	}
+//	}
 }
 
 
-
-void state_machine(void)
+void vState_machine(void)
 {
 	while(1)
 	{
-		if(ignition_button){
+
+		if(!ignition_button){
+
+
 			if(Hazzred_button){
-				right_led_write(led_mode);
-				left_led_write(led_mode);
+//				DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
+				vBlink_Right();
+				Blink_LEFT();
+//				DIO_SetPinVal(DIO_PORTC , Pin3 , HIGH);
 			}
 			else if(R_button ){
-				rightLedWrite(led_mode);
+//				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+				vBlink_Right();
+
 
 			}
 			else if(L_button ){
-				leftLedWrite(led_mode);
+//				DIO_SetPinVal(DIO_PORTC , Pin6, LOW);
+				Blink_LEFT();
 
 			}
 		}
 
 	}
 }
+void vBlink_Right(void ){
+	DDRB|=(1<<PB3);
+//	while(1){
+//		DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
+	/*Timer0_Start();*/
+	/*DIO_SetPinDir(DIO_PORTB ,Pin3, OUTPUT);*/
+		if(led_mode){
+			/*TIMER0_PWM_Start();*/
+			TCCR0 = (1<<WGM00) | (1<<WGM01) | (1<<COM01) | (1<<CS00);
+			OCR0 = 204;
+			DIO_SetPinVal(DIO_PORTC , Pin6 , HIGH);
+		}else{
+			/*TIMER0_PWM_Start();*/
+			DIO_SetPinVal(DIO_PORTC , Pin6 , LOW);
+			TCCR0 &=~ (1<<COM01);
+			TCCR0 &=~ (1<<CS00);
+//		}
+//		vTaskDelay( 400 );
+//		led_mode= !led_mode;
+	}
 
-/*edit 5/2/2023 21:02pm author : omar */
-void Blink_Right(char led_mode){
-	/*if(LEFT_STATE == NOT_PRESSED){
-	 TIMER0_PWM_STOP(); 
-	 }*/
-	Timer1_SET_DUTY_CYCLE(80);
-	if(led_mode){
-		TIMER1_PWM_STOP();
-	}else{
-		TIMER1_PWM_START();
-	}
+
 }
-void Blink_LEFT(char led_mode){
+
+void Blink_LEFT(void){
 	/*if(RIGHT_STATE == NOT_PRESSED){
-	 TIMER1_PWM_STOP(); 
+	 TIMER1_PWM_STOP();
 	 }*/
-	Timer0_SET_DUTY_CYCLE(80);
-	if(led_mode){
-		TIMER0_PWM_STOP();
-	}else{
-		TIMER0_PWM_START();
-	}
+//	while(1){
+//	Timer0_SET_DUTY_CYCLE(80);
+//	if(led_mode){
+//		TIMER0_PWM_Stop();
+//	}else{
+//		TIMER0_PWM_Start();
+//	}
+//		DIO_SetPinVal(DIO_PORTC , Pin3 , HIGH);
+		if(led_mode){
+			/*TIMER1_PWM_STOP();*/
+			DIO_SetPinVal(DIO_PORTC , Pin3 , HIGH);
+		}else{
+			/*TIMER1_PWM_START();*/
+			DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+		}
+//	}
 }
-char READ_IGNITON(void){
-	DIO_SetPinDir(PORTA ,PIN0, INPUT);
-	char IGNITION_data = DIO_GetPinVal(PORTA ,PIN0) ; 
+
+/*uint8_t READ_IGNITON(void){
+
+	DIO_SetPinDir(DIO_PORTA ,Pin0, INPUT);
+	uint8_t IGNITION_data = DIO_GetPinVal(DIO_PORTA ,Pin0) ;
 	return IGNITION_data;
-}
-char READ_HAZARD_Button(void){
-	DIO_SetPinDir(PORTA ,PIN1, INPUT);
-	char HAZARD_data = DIO_GetPinVal(PORTA ,PIN1) ;
+}*/
+/*uint8_t READ_HAZARD_Button(void){
+	DIO_SetPinDir(DIO_PORTA ,Pin1, INPUT);
+	uint8_t HAZARD_data = DIO_GetPinVal(DIO_PORTA ,Pin1) ;
 	/*Some logic is needed here or in hazard button function to handle rising edge
-	 ex: 
+	 ex:
 	 CURRENT_HAZARD_DATA = getpinval();
 	 if((previuos == low)&&(current == high)){
-	 return pressed ; 
-	 
+	 return pressed ;
 	 }else{
 	 return unpressed;
 	 }
-	 */
+
 	return HAZARD_data;
-}
-char READ_RIGHT_Button(void){
-	DIO_SetPinDir(PORTA ,PIN2, INPUT);
-	char RIGHT_data = DIO_GetPinVal(PORTA ,PIN2) ; 
-	return RIGHT_data;
-}
-char READ_LEFT_Button(void){
-	DIO_SetPinDir(PORTA ,PIN3, INPUT);
-	char LEFT_data = DIO_GetPinVal(PORTA ,PIN2); 
-	return LEFT_data;
-}
-/*end of edit 21:04 pm author : omar*/
+}*/
+/*uint8_t READ_RIGHT_Button(void){
+	DIO_SetPinDir(DIO_PORTA ,Pin2, INPUT);
+	uint8_t right_data  = DIO_GetPinVal(DIO_PORTA ,Pin2) ;
+	return right_data ;
+}*/
+/*uint8_t READ_LEFT_Button(void){
+	DIO_SetPinDir(DIO_PORTA ,Pin3, INPUT);
+	uint8_t right_data  = DIO_GetPinVal(DIO_PORTA ,Pin3) ;
+	return right_data;
 
-
-
-
+}*/
