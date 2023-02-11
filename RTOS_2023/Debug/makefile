@@ -10,6 +10,8 @@ RM := rm -rf
 -include sources.mk
 -include Source/portable/MemMang/subdir.mk
 -include Source/portable/GCC/ATMega323/subdir.mk
+-include Source/include/MCAL/subdir.mk
+-include Source/include/HAL/subdir.mk
 -include Source/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -34,8 +36,10 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
 RTOS_2023.lss \
+RTOS_2023.lss \
 
 SIZEDUMMY += \
+sizedummy \
 sizedummy \
 
 
