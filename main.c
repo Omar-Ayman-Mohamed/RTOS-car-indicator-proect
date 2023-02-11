@@ -210,7 +210,7 @@ void get_readings(void)
 			}
 			else{
 				DIO_SetPinVal(DIO_PORTB , Pin3 , LOW);
-				DIO_SetPinVal(DIO_PORTC , Pin3 , LOW);
+				DIO_SetPinVal(DIO_PORTD , Pin7 , LOW);
 				TCCR0 &=~ (1<<COM01);
 				TCCR0 &=~ (1<<CS00);
 				TCCR2 &=~ (1<<COM21);
@@ -226,6 +226,13 @@ void get_readings(void)
 				Hazzred_button = 0;
 
 			}
+		}else{
+			DIO_SetPinVal(DIO_PORTB , Pin3 , LOW);
+			DIO_SetPinVal(DIO_PORTD , Pin7 , LOW);
+			TCCR0 &=~ (1<<COM01);
+			TCCR0 &=~ (1<<CS00);
+			TCCR2 &=~ (1<<COM21);
+			TCCR2 &=~ (1<<CS20);
 		}
 //	}
 }
