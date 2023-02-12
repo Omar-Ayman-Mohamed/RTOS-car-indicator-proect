@@ -9,11 +9,10 @@
 #include "LED.h"
 
 
-
 /*add timer config to freertosconfiq */
 TimerHandle_t xButtonTimer = NULL;
 TimerHandle_t xLedBlinkingTimer = NULL;
-
+char runtime_Status [20];
 char R_button, L_button, Hazzred_button , led_mode = 0;
 int right_button_pressed_counter,left_button_pressed_counter,hazzred_button_pressed_counter=0;
 uint8_t ignition_button=0;
@@ -83,11 +82,10 @@ void get_readings(void)
 {
 
 		ignition_button = READ_IGNITON();
-
+		uint8_t hazard_data = READ_HAZARD_Button();
+		uint8_t right_data = READ_RIGHT_Button();
+		uint8_t left_data = READ_LEFT_Button();
 		if(!ignition_button){
-			uint8_t hazard_data = READ_HAZARD_Button();
-			uint8_t right_data = READ_RIGHT_Button();
-			uint8_t left_data = READ_LEFT_Button();
 			if(hazard_data){
 				/*hazard btton pressed state*/
 					Hazzred_button = 1;
@@ -136,6 +134,7 @@ void get_readings(void)
 			Stop_Blinking_Left();
 		}
 
+
 }
 
 
@@ -143,7 +142,10 @@ void vState_machine(void)
 {
 	while(1)
 	{
-
+		if(Hazzred_button){
+			vBlink_Right(led_mode);
+			Blink_LEFT(led_mode);
+		}
 		if(!ignition_button){
 			if(Hazzred_button){
 				vBlink_Right(led_mode);
@@ -156,7 +158,13 @@ void vState_machine(void)
 				Blink_LEFT(led_mode);
 			}
 		}
+		}
+		void vTaskGetRunTimeStats(runtime_Status);
+		UART_SendString(runtime_Status);
+
 	}
+
+
+void config_tim_1(){
+	TCCR0 = 0x01;
 }
-
-

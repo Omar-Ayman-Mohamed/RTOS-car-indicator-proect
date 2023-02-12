@@ -60,6 +60,8 @@
 #define configUSE_CO_ROUTINES 		1
 #define configMAX_CO_ROUTINE_PRIORITIES ( 2 )
 
+
+
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
 
@@ -76,6 +78,13 @@ to exclude the API function. */
 #define configTIMER_TASK_PRIORITY               3
 #define configTIMER_QUEUE_LENGTH                10
 #define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
+
+
+#define configUSE_STATS_FORMATTING_FUNCTIONS  1
+#define configUSE_TRACE_FACILITY 1
+#define configGENERATE_RUN_TIME_STATS    		1
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()
+#define portGET_RUN_TIME_COUNTER_VALUE() (TCNT0 )
 
 
 #endif /* FREERTOS_CONFIG_H */

@@ -4,6 +4,8 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
                               ./Source/queue.o (__udivmodhi4)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
                               ./main.o (__divmodhi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              ./Source/tasks.o (__udivmodsi4)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
@@ -14,11 +16,32 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memc
                               ./Source/queue.o (memcpy)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
                               ./Source/tasks.o (memset)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                              ./Source/tasks.o (strcpy)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+                              ./Source/tasks.o (strlen)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                              ./Source/tasks.o (sprintf)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (vfprintf)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen_P)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (fputc)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (__ultoa_invert)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (__prologue_saves__)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (__epilogue_restores__)
 
 Allocating common symbols
 Common symbol       size              file
 
 R_button            0x1               ./main.o
+runtime_Status      0x14              ./main.o
 task2ptr            0x2               ./main.o
 L_button            0x1               ./main.o
 task1ptr            0x2               ./main.o
@@ -149,7 +172,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x656e
+.text           0x00000000     0x7944
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -240,11 +263,22 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text          0x00000092        0x0 ./main.o
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
  .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
  .text.pvPortMalloc
@@ -377,299 +411,392 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00001a54                vEventGroupClearBitsCallback
  .text.prvTestWaitCondition
                 0x00001a8e       0x64 ./Source/event_groups.o
+ .text.uxEventGroupGetNumber
+                0x00001af2       0x40 ./Source/event_groups.o
+                0x00001af2                uxEventGroupGetNumber
+ .text.vEventGroupSetNumber
+                0x00001b32       0x26 ./Source/event_groups.o
+                0x00001b32                vEventGroupSetNumber
  .text.vListInitialise
-                0x00001af2       0x54 ./Source/list.o
-                0x00001af2                vListInitialise
+                0x00001b58       0x54 ./Source/list.o
+                0x00001b58                vListInitialise
  .text.vListInitialiseItem
-                0x00001b46       0x20 ./Source/list.o
-                0x00001b46                vListInitialiseItem
+                0x00001bac       0x20 ./Source/list.o
+                0x00001bac                vListInitialiseItem
  .text.vListInsertEnd
-                0x00001b66       0x88 ./Source/list.o
-                0x00001b66                vListInsertEnd
+                0x00001bcc       0x88 ./Source/list.o
+                0x00001bcc                vListInsertEnd
  .text.vListInsert
-                0x00001bee       0xd8 ./Source/list.o
-                0x00001bee                vListInsert
+                0x00001c54       0xd8 ./Source/list.o
+                0x00001c54                vListInsert
  .text.uxListRemove
-                0x00001cc6       0x98 ./Source/list.o
-                0x00001cc6                uxListRemove
+                0x00001d2c       0x98 ./Source/list.o
+                0x00001d2c                uxListRemove
  .text.xQueueGenericReset
-                0x00001d5e      0x156 ./Source/queue.o
-                0x00001d5e                xQueueGenericReset
+                0x00001dc4      0x156 ./Source/queue.o
+                0x00001dc4                xQueueGenericReset
  .text.xQueueGenericCreate
-                0x00001eb4       0xe8 ./Source/queue.o
-                0x00001eb4                xQueueGenericCreate
+                0x00001f1a       0xe8 ./Source/queue.o
+                0x00001f1a                xQueueGenericCreate
  .text.prvInitialiseNewQueue
-                0x00001f9c       0x76 ./Source/queue.o
+                0x00002002       0x7e ./Source/queue.o
  .text.xQueueGenericSend
-                0x00002012      0x158 ./Source/queue.o
-                0x00002012                xQueueGenericSend
+                0x00002080      0x158 ./Source/queue.o
+                0x00002080                xQueueGenericSend
  .text.xQueueGenericSendFromISR
-                0x0000216a       0xb8 ./Source/queue.o
-                0x0000216a                xQueueGenericSendFromISR
+                0x000021d8       0xb8 ./Source/queue.o
+                0x000021d8                xQueueGenericSendFromISR
  .text.xQueueGiveFromISR
-                0x00002222       0xa2 ./Source/queue.o
-                0x00002222                xQueueGiveFromISR
+                0x00002290       0xa2 ./Source/queue.o
+                0x00002290                xQueueGiveFromISR
  .text.xQueueReceive
-                0x000022c4      0x156 ./Source/queue.o
-                0x000022c4                xQueueReceive
+                0x00002332      0x156 ./Source/queue.o
+                0x00002332                xQueueReceive
  .text.xQueueSemaphoreTake
-                0x0000241a      0x144 ./Source/queue.o
-                0x0000241a                xQueueSemaphoreTake
+                0x00002488      0x144 ./Source/queue.o
+                0x00002488                xQueueSemaphoreTake
  .text.xQueuePeek
-                0x0000255e      0x164 ./Source/queue.o
-                0x0000255e                xQueuePeek
+                0x000025cc      0x164 ./Source/queue.o
+                0x000025cc                xQueuePeek
  .text.xQueueReceiveFromISR
-                0x000026c2       0xae ./Source/queue.o
-                0x000026c2                xQueueReceiveFromISR
+                0x00002730       0xae ./Source/queue.o
+                0x00002730                xQueueReceiveFromISR
  .text.xQueuePeekFromISR
-                0x00002770       0x72 ./Source/queue.o
-                0x00002770                xQueuePeekFromISR
+                0x000027de       0x72 ./Source/queue.o
+                0x000027de                xQueuePeekFromISR
  .text.uxQueueMessagesWaiting
-                0x000027e2       0x30 ./Source/queue.o
-                0x000027e2                uxQueueMessagesWaiting
+                0x00002850       0x30 ./Source/queue.o
+                0x00002850                uxQueueMessagesWaiting
  .text.uxQueueSpacesAvailable
-                0x00002812       0x4a ./Source/queue.o
-                0x00002812                uxQueueSpacesAvailable
+                0x00002880       0x4a ./Source/queue.o
+                0x00002880                uxQueueSpacesAvailable
  .text.uxQueueMessagesWaitingFromISR
-                0x0000285c       0x34 ./Source/queue.o
-                0x0000285c                uxQueueMessagesWaitingFromISR
+                0x000028ca       0x34 ./Source/queue.o
+                0x000028ca                uxQueueMessagesWaitingFromISR
  .text.vQueueDelete
-                0x00002890       0x2e ./Source/queue.o
-                0x00002890                vQueueDelete
+                0x000028fe       0x2e ./Source/queue.o
+                0x000028fe                vQueueDelete
+ .text.uxQueueGetQueueNumber
+                0x0000292c       0x1e ./Source/queue.o
+                0x0000292c                uxQueueGetQueueNumber
+ .text.vQueueSetQueueNumber
+                0x0000294a       0x26 ./Source/queue.o
+                0x0000294a                vQueueSetQueueNumber
+ .text.ucQueueGetQueueType
+                0x00002970       0x1e ./Source/queue.o
+                0x00002970                ucQueueGetQueueType
  .text.prvCopyDataToQueue
-                0x000028be      0x14c ./Source/queue.o
+                0x0000298e      0x14c ./Source/queue.o
  .text.prvCopyDataFromQueue
-                0x00002a0a       0x8e ./Source/queue.o
+                0x00002ada       0x8e ./Source/queue.o
  .text.prvUnlockQueue
-                0x00002a98       0xa6 ./Source/queue.o
+                0x00002b68       0xa6 ./Source/queue.o
  .text.prvIsQueueEmpty
-                0x00002b3e       0x3a ./Source/queue.o
+                0x00002c0e       0x3a ./Source/queue.o
  .text.xQueueIsQueueEmptyFromISR
-                0x00002b78       0x3e ./Source/queue.o
-                0x00002b78                xQueueIsQueueEmptyFromISR
+                0x00002c48       0x3e ./Source/queue.o
+                0x00002c48                xQueueIsQueueEmptyFromISR
  .text.prvIsQueueFull
-                0x00002bb6       0x40 ./Source/queue.o
+                0x00002c86       0x40 ./Source/queue.o
  .text.xQueueIsQueueFullFromISR
-                0x00002bf6       0x44 ./Source/queue.o
-                0x00002bf6                xQueueIsQueueFullFromISR
+                0x00002cc6       0x44 ./Source/queue.o
+                0x00002cc6                xQueueIsQueueFullFromISR
  .text.xQueueCRSend
-                0x00002c3a       0xc2 ./Source/queue.o
-                0x00002c3a                xQueueCRSend
+                0x00002d0a       0xc2 ./Source/queue.o
+                0x00002d0a                xQueueCRSend
  .text.xQueueCRReceive
-                0x00002cfc      0x11c ./Source/queue.o
-                0x00002cfc                xQueueCRReceive
+                0x00002dcc      0x11c ./Source/queue.o
+                0x00002dcc                xQueueCRReceive
  .text.xQueueCRSendFromISR
-                0x00002e18       0x82 ./Source/queue.o
-                0x00002e18                xQueueCRSendFromISR
+                0x00002ee8       0x82 ./Source/queue.o
+                0x00002ee8                xQueueCRSendFromISR
  .text.xQueueCRReceiveFromISR
-                0x00002e9a       0xea ./Source/queue.o
-                0x00002e9a                xQueueCRReceiveFromISR
+                0x00002f6a       0xea ./Source/queue.o
+                0x00002f6a                xQueueCRReceiveFromISR
  .text.vQueueWaitForMessageRestricted
-                0x00002f84       0x86 ./Source/queue.o
-                0x00002f84                vQueueWaitForMessageRestricted
+                0x00003054       0x86 ./Source/queue.o
+                0x00003054                vQueueWaitForMessageRestricted
  .text.xTaskCreate
-                0x0000300a       0xf0 ./Source/tasks.o
-                0x0000300a                xTaskCreate
+                0x000030da       0xf0 ./Source/tasks.o
+                0x000030da                xTaskCreate
  .text.prvInitialiseNewTask
-                0x000030fa      0x18a ./Source/tasks.o
+                0x000031ca      0x1ac ./Source/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x00003284      0x17a ./Source/tasks.o
+                0x00003376      0x184 ./Source/tasks.o
  .text.vTaskDelete
-                0x000033fe       0xf6 ./Source/tasks.o
-                0x000033fe                vTaskDelete
+                0x000034fa       0xf6 ./Source/tasks.o
+                0x000034fa                vTaskDelete
  .text.xTaskDelayUntil
-                0x000034f4       0xe6 ./Source/tasks.o
-                0x000034f4                xTaskDelayUntil
+                0x000035f0       0xe6 ./Source/tasks.o
+                0x000035f0                xTaskDelayUntil
  .text.vTaskDelay
-                0x000035da       0x44 ./Source/tasks.o
-                0x000035da                vTaskDelay
+                0x000036d6       0x44 ./Source/tasks.o
+                0x000036d6                vTaskDelay
+ .text.eTaskGetState
+                0x0000371a       0xb8 ./Source/tasks.o
+                0x0000371a                eTaskGetState
  .text.vTaskStartScheduler
-                0x0000361e       0x76 ./Source/tasks.o
-                0x0000361e                vTaskStartScheduler
+                0x000037d2       0x76 ./Source/tasks.o
+                0x000037d2                vTaskStartScheduler
  .text.vTaskEndScheduler
-                0x00003694       0x18 ./Source/tasks.o
-                0x00003694                vTaskEndScheduler
+                0x00003848       0x18 ./Source/tasks.o
+                0x00003848                vTaskEndScheduler
  .text.vTaskSuspendAll
-                0x000036ac       0x18 ./Source/tasks.o
-                0x000036ac                vTaskSuspendAll
+                0x00003860       0x18 ./Source/tasks.o
+                0x00003860                vTaskSuspendAll
  .text.xTaskResumeAll
-                0x000036c4      0x2a0 ./Source/tasks.o
-                0x000036c4                xTaskResumeAll
+                0x00003878      0x2a0 ./Source/tasks.o
+                0x00003878                xTaskResumeAll
  .text.xTaskGetTickCount
-                0x00003964       0x2e ./Source/tasks.o
-                0x00003964                xTaskGetTickCount
+                0x00003b18       0x2e ./Source/tasks.o
+                0x00003b18                xTaskGetTickCount
  .text.xTaskGetTickCountFromISR
-                0x00003992       0x2a ./Source/tasks.o
-                0x00003992                xTaskGetTickCountFromISR
+                0x00003b46       0x2a ./Source/tasks.o
+                0x00003b46                xTaskGetTickCountFromISR
  .text.uxTaskGetNumberOfTasks
-                0x000039bc       0x12 ./Source/tasks.o
-                0x000039bc                uxTaskGetNumberOfTasks
+                0x00003b70       0x12 ./Source/tasks.o
+                0x00003b70                uxTaskGetNumberOfTasks
  .text.pcTaskGetName
-                0x000039ce       0x50 ./Source/tasks.o
-                0x000039ce                pcTaskGetName
+                0x00003b82       0x50 ./Source/tasks.o
+                0x00003b82                pcTaskGetName
+ .text.uxTaskGetSystemState
+                0x00003bd2      0x160 ./Source/tasks.o
+                0x00003bd2                uxTaskGetSystemState
  .text.xTaskCatchUpTicks
-                0x00003a1e       0x40 ./Source/tasks.o
-                0x00003a1e                xTaskCatchUpTicks
+                0x00003d32       0x40 ./Source/tasks.o
+                0x00003d32                xTaskCatchUpTicks
  .text.xTaskIncrementTick
-                0x00003a5e      0x32e ./Source/tasks.o
-                0x00003a5e                xTaskIncrementTick
+                0x00003d72      0x32e ./Source/tasks.o
+                0x00003d72                xTaskIncrementTick
  .text.vTaskSwitchContext
-                0x00003d8c       0xda ./Source/tasks.o
-                0x00003d8c                vTaskSwitchContext
+                0x000040a0      0x1b2 ./Source/tasks.o
+                0x000040a0                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x00003e66       0x44 ./Source/tasks.o
-                0x00003e66                vTaskPlaceOnEventList
+                0x00004252       0x44 ./Source/tasks.o
+                0x00004252                vTaskPlaceOnEventList
  .text.vTaskPlaceOnUnorderedEventList
-                0x00003eaa       0xca ./Source/tasks.o
-                0x00003eaa                vTaskPlaceOnUnorderedEventList
+                0x00004296       0xca ./Source/tasks.o
+                0x00004296                vTaskPlaceOnUnorderedEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x00003f74       0xc4 ./Source/tasks.o
-                0x00003f74                vTaskPlaceOnEventListRestricted
+                0x00004360       0xc4 ./Source/tasks.o
+                0x00004360                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x00004038      0x288 ./Source/tasks.o
-                0x00004038                xTaskRemoveFromEventList
+                0x00004424      0x288 ./Source/tasks.o
+                0x00004424                xTaskRemoveFromEventList
  .text.vTaskRemoveFromUnorderedEventList
-                0x000042c0      0x21c ./Source/tasks.o
-                0x000042c0                vTaskRemoveFromUnorderedEventList
+                0x000046ac      0x21c ./Source/tasks.o
+                0x000046ac                vTaskRemoveFromUnorderedEventList
  .text.vTaskSetTimeOutState
-                0x000044dc       0x3c ./Source/tasks.o
-                0x000044dc                vTaskSetTimeOutState
+                0x000048c8       0x3c ./Source/tasks.o
+                0x000048c8                vTaskSetTimeOutState
  .text.vTaskInternalSetTimeOutState
-                0x00004518       0x32 ./Source/tasks.o
-                0x00004518                vTaskInternalSetTimeOutState
+                0x00004904       0x32 ./Source/tasks.o
+                0x00004904                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x0000454a       0xce ./Source/tasks.o
-                0x0000454a                xTaskCheckForTimeOut
+                0x00004936       0xce ./Source/tasks.o
+                0x00004936                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x00004618       0x14 ./Source/tasks.o
-                0x00004618                vTaskMissedYield
+                0x00004a04       0x14 ./Source/tasks.o
+                0x00004a04                vTaskMissedYield
+ .text.uxTaskGetTaskNumber
+                0x00004a18       0x40 ./Source/tasks.o
+                0x00004a18                uxTaskGetTaskNumber
+ .text.vTaskSetTaskNumber
+                0x00004a58       0x3c ./Source/tasks.o
+                0x00004a58                vTaskSetTaskNumber
  .text.prvIdleTask
-                0x0000462c       0x20 ./Source/tasks.o
+                0x00004a94       0x20 ./Source/tasks.o
  .text.prvInitialiseTaskLists
-                0x0000464c       0x7a ./Source/tasks.o
+                0x00004ab4       0x7a ./Source/tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x000046c6       0x5e ./Source/tasks.o
+                0x00004b2e       0x5e ./Source/tasks.o
+ .text.vTaskGetInfo
+                0x00004b8c      0x114 ./Source/tasks.o
+                0x00004b8c                vTaskGetInfo
+ .text.prvListTasksWithinSingleList
+                0x00004ca0      0x134 ./Source/tasks.o
+ .text.prvTaskCheckFreeStackSpace
+                0x00004dd4       0x5c ./Source/tasks.o
  .text.prvDeleteTCB
-                0x00004724       0x2c ./Source/tasks.o
+                0x00004e30       0x2c ./Source/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x00004750       0x44 ./Source/tasks.o
+                0x00004e5c       0x44 ./Source/tasks.o
  .text.xTaskGetSchedulerState
-                0x00004794       0x32 ./Source/tasks.o
-                0x00004794                xTaskGetSchedulerState
+                0x00004ea0       0x32 ./Source/tasks.o
+                0x00004ea0                xTaskGetSchedulerState
+ .text.prvWriteNameToBuffer
+                0x00004ed2       0x86 ./Source/tasks.o
+ .text.vTaskList
+                0x00004f58      0x210 ./Source/tasks.o
+                0x00004f58                vTaskList
+ .text.vTaskGetRunTimeStats
+                0x00005168      0x226 ./Source/tasks.o
+                0x00005168                vTaskGetRunTimeStats
  .text.uxTaskResetEventItemValue
-                0x000047c6       0x4e ./Source/tasks.o
-                0x000047c6                uxTaskResetEventItemValue
+                0x0000538e       0x4e ./Source/tasks.o
+                0x0000538e                uxTaskResetEventItemValue
  .text.ulTaskGenericNotifyTake
-                0x00004814      0x16c ./Source/tasks.o
-                0x00004814                ulTaskGenericNotifyTake
+                0x000053dc      0x16c ./Source/tasks.o
+                0x000053dc                ulTaskGenericNotifyTake
  .text.xTaskGenericNotifyWait
-                0x00004980      0x1ee ./Source/tasks.o
-                0x00004980                xTaskGenericNotifyWait
+                0x00005548      0x1ee ./Source/tasks.o
+                0x00005548                xTaskGenericNotifyWait
  .text.xTaskGenericNotify
-                0x00004b6e      0x37c ./Source/tasks.o
-                0x00004b6e                xTaskGenericNotify
+                0x00005736      0x37c ./Source/tasks.o
+                0x00005736                xTaskGenericNotify
  .text.xTaskGenericNotifyFromISR
-                0x00004eea      0x3fe ./Source/tasks.o
-                0x00004eea                xTaskGenericNotifyFromISR
+                0x00005ab2      0x3fe ./Source/tasks.o
+                0x00005ab2                xTaskGenericNotifyFromISR
  .text.vTaskGenericNotifyGiveFromISR
-                0x000052e8      0x2a0 ./Source/tasks.o
-                0x000052e8                vTaskGenericNotifyGiveFromISR
+                0x00005eb0      0x2a0 ./Source/tasks.o
+                0x00005eb0                vTaskGenericNotifyGiveFromISR
  .text.xTaskGenericNotifyStateClear
-                0x00005588       0x92 ./Source/tasks.o
-                0x00005588                xTaskGenericNotifyStateClear
+                0x00006150       0x92 ./Source/tasks.o
+                0x00006150                xTaskGenericNotifyStateClear
  .text.ulTaskGenericNotifyValueClear
-                0x0000561a      0x104 ./Source/tasks.o
-                0x0000561a                ulTaskGenericNotifyValueClear
+                0x000061e2      0x104 ./Source/tasks.o
+                0x000061e2                ulTaskGenericNotifyValueClear
  .text.prvAddCurrentTaskToDelayedList
-                0x0000571e       0xcc ./Source/tasks.o
+                0x000062e6       0xcc ./Source/tasks.o
  .text.xTimerCreateTimerTask
-                0x000057ea       0x52 ./Source/timers.o
-                0x000057ea                xTimerCreateTimerTask
+                0x000063b2       0x52 ./Source/timers.o
+                0x000063b2                xTimerCreateTimerTask
  .text.xTimerCreate
-                0x0000583c       0x86 ./Source/timers.o
-                0x0000583c                xTimerCreate
+                0x00006404       0x86 ./Source/timers.o
+                0x00006404                xTimerCreate
  .text.prvInitialiseNewTimer
-                0x000058c2       0x9e ./Source/timers.o
+                0x0000648a       0x9e ./Source/timers.o
  .text.xTimerGenericCommand
-                0x00005960       0xca ./Source/timers.o
-                0x00005960                xTimerGenericCommand
+                0x00006528       0xca ./Source/timers.o
+                0x00006528                xTimerGenericCommand
  .text.xTimerGetTimerDaemonTaskHandle
-                0x00005a2a       0x16 ./Source/timers.o
-                0x00005a2a                xTimerGetTimerDaemonTaskHandle
+                0x000065f2       0x16 ./Source/timers.o
+                0x000065f2                xTimerGetTimerDaemonTaskHandle
  .text.xTimerGetPeriod
-                0x00005a40       0x2e ./Source/timers.o
-                0x00005a40                xTimerGetPeriod
+                0x00006608       0x2e ./Source/timers.o
+                0x00006608                xTimerGetPeriod
  .text.vTimerSetReloadMode
-                0x00005a6e       0x5a ./Source/timers.o
-                0x00005a6e                vTimerSetReloadMode
+                0x00006636       0x5a ./Source/timers.o
+                0x00006636                vTimerSetReloadMode
  .text.uxTimerGetReloadMode
-                0x00005ac8       0x50 ./Source/timers.o
-                0x00005ac8                uxTimerGetReloadMode
+                0x00006690       0x50 ./Source/timers.o
+                0x00006690                uxTimerGetReloadMode
  .text.xTimerGetExpiryTime
-                0x00005b18       0x3c ./Source/timers.o
-                0x00005b18                xTimerGetExpiryTime
+                0x000066e0       0x3c ./Source/timers.o
+                0x000066e0                xTimerGetExpiryTime
  .text.pcTimerGetName
-                0x00005b54       0x2e ./Source/timers.o
-                0x00005b54                pcTimerGetName
+                0x0000671c       0x2e ./Source/timers.o
+                0x0000671c                pcTimerGetName
  .text.prvReloadTimer
-                0x00005b82       0x7e ./Source/timers.o
+                0x0000674a       0x7e ./Source/timers.o
  .text.prvProcessExpiredTimer
-                0x00005c00       0x8c ./Source/timers.o
+                0x000067c8       0x8c ./Source/timers.o
  .text.prvTimerTask
-                0x00005c8c       0x30 ./Source/timers.o
+                0x00006854       0x30 ./Source/timers.o
  .text.prvProcessTimerOrBlockTask
-                0x00005cbc       0xae ./Source/timers.o
+                0x00006884       0xae ./Source/timers.o
  .text.prvGetNextExpireTime
-                0x00005d6a       0x68 ./Source/timers.o
+                0x00006932       0x68 ./Source/timers.o
  .text.prvSampleTimeNow
-                0x00005dd2       0x5c ./Source/timers.o
+                0x0000699a       0x5c ./Source/timers.o
  .text.prvInsertTimerInActiveList
-                0x00005e2e       0xd0 ./Source/timers.o
+                0x000069f6       0xd0 ./Source/timers.o
  .text.prvProcessReceivedCommands
-                0x00005efe      0x1f6 ./Source/timers.o
+                0x00006ac6      0x1f6 ./Source/timers.o
  .text.prvSwitchTimerLists
-                0x000060f4       0x74 ./Source/timers.o
+                0x00006cbc       0x74 ./Source/timers.o
  .text.prvCheckForValidListAndQueue
-                0x00006168       0x5e ./Source/timers.o
+                0x00006d30       0x5e ./Source/timers.o
  .text.xTimerIsTimerActive
-                0x000061c6       0x50 ./Source/timers.o
-                0x000061c6                xTimerIsTimerActive
+                0x00006d8e       0x50 ./Source/timers.o
+                0x00006d8e                xTimerIsTimerActive
  .text.pvTimerGetTimerID
-                0x00006216       0x46 ./Source/timers.o
-                0x00006216                pvTimerGetTimerID
+                0x00006dde       0x46 ./Source/timers.o
+                0x00006dde                pvTimerGetTimerID
  .text.vTimerSetTimerID
-                0x0000625c       0x46 ./Source/timers.o
-                0x0000625c                vTimerSetTimerID
- .text.main     0x000062a2       0xb8 ./main.o
-                0x000062a2                main
+                0x00006e24       0x46 ./Source/timers.o
+                0x00006e24                vTimerSetTimerID
+ .text.uxTimerGetTimerNumber
+                0x00006e6a       0x1e ./Source/timers.o
+                0x00006e6a                uxTimerGetTimerNumber
+ .text.vTimerSetTimerNumber
+                0x00006e88       0x26 ./Source/timers.o
+                0x00006e88                vTimerSetTimerNumber
+ .text.UART_init
+                0x00006eae       0xe6 ./main.o
+                0x00006eae                UART_init
+ .text.UART_RxChar
+                0x00006f94       0x1e ./main.o
+                0x00006f94                UART_RxChar
+ .text.UART_TxChar
+                0x00006fb2       0x2e ./main.o
+                0x00006fb2                UART_TxChar
+ .text.UART_SendString
+                0x00006fe0       0x52 ./main.o
+                0x00006fe0                UART_SendString
+ .text.main     0x00007032       0xbc ./main.o
+                0x00007032                main
  .text.toggle_led_mode
-                0x0000635a       0x26 ./main.o
-                0x0000635a                toggle_led_mode
+                0x000070ee       0x26 ./main.o
+                0x000070ee                toggle_led_mode
  .text.get_readings
-                0x00006380      0x12e ./main.o
-                0x00006380                get_readings
+                0x00007114      0x12e ./main.o
+                0x00007114                get_readings
  .text.vState_machine
-                0x000064ae       0x4e ./main.o
-                0x000064ae                vState_machine
- .text.libgcc   0x000064fc       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000064fc                __udivmodhi4
- .text.libgcc   0x00006524       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
-                0x00006524                __divmodhi4
-                0x00006524                _div
- .text.libgcc   0x0000654a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000654a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000654a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00007242       0x66 ./main.o
+                0x00007242                vState_machine
+ .text.config_tim_1
+                0x000072a8       0x16 ./main.o
+                0x000072a8                config_tim_1
+ .text.libgcc   0x000072be       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x000072be                __udivmodhi4
+ .text.libgcc   0x000072e6       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+                0x000072e6                __divmodhi4
+                0x000072e6                _div
+ .text.libgcc   0x0000730c       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000730c                __udivmodsi4
+ .text.libgcc   0x00007350        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00007350        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00007350        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x0000654a       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x0000654a                memcpy
+                0x00007350       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x00007350                memcpy
  .text.avr-libc
-                0x0000655c        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
-                0x0000655c                memset
-                0x0000656a                . = ALIGN (0x2)
+                0x00007362        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x00007362                memset
+ .text.avr-libc
+                0x00007370        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x00007370                strcpy
+ .text.avr-libc
+                0x0000737e       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+                0x0000737e                strlen
+ .text.avr-libc
+                0x00007390       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00007390                sprintf
+ .text.avr-libc
+                0x000073d8      0x3ba c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x000073d8                vfprintf
+ .text.avr-libc
+                0x00007792       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00007792                strnlen_P
+ .text.avr-libc
+                0x000077a8       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x000077a8                strnlen
+ .text.avr-libc
+                0x000077be       0x58 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x000077be                fputc
+ .text.avr-libc
+                0x00007816       0xbc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00007816                __ultoa_invert
+ .text.libgcc   0x000078d2       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000078d2                __prologue_saves__
+ .text.libgcc   0x0000790a       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000790a                __epilogue_restores__
+                0x00007940                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000656a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000656a                exit
-                0x0000656a                _exit
+ .fini9         0x00007940        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00007940                exit
+                0x00007940                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -688,11 +815,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000656a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00007940        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000656e                _etext = .
+                0x00007944                _etext = .
 
-.data           0x00800060       0x2c load address 0x0000656e
+.data           0x00800060       0x52 load address 0x00007944
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -706,169 +833,195 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800060        0x0 ./Source/event_groups.o
  .data          0x00800060        0x0 ./Source/list.o
  .data          0x00800060        0x0 ./Source/queue.o
- .data          0x00800060        0x5 ./Source/tasks.o
- .data          0x00800065        0x8 ./Source/timers.o
- .data          0x0080006d       0x1d ./main.o
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
- .data          0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .data          0x00800060       0x2c ./Source/tasks.o
+ .data          0x0080008c        0x8 ./Source/timers.o
+ .data          0x00800094       0x1d ./main.o
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x008000b1        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
  *(.data*)
  .data.uxTopUsedPriority
-                0x0080008a        0x1 ./Source/tasks.o
-                0x0080008a                uxTopUsedPriority
+                0x008000b1        0x1 ./Source/tasks.o
+                0x008000b1                uxTopUsedPriority
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0080008c                . = ALIGN (0x2)
- *fill*         0x0080008b        0x1 00
-                0x0080008c                _edata = .
-                0x0080008c                PROVIDE (__data_end, .)
+                0x008000b2                . = ALIGN (0x2)
+                0x008000b2                _edata = .
+                0x008000b2                PROVIDE (__data_end, .)
 
-.bss            0x0080008c      0x6a7
-                0x0080008c                PROVIDE (__bss_start, .)
+.bss            0x008000b2      0x6c3
+                0x008000b2                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x0080008c        0x0 ./Source/portable/MemMang/heap_1.o
- .bss           0x0080008c        0x0 ./Source/portable/GCC/ATMega323/port.o
- .bss           0x0080008c        0x0 ./Source/include/MCAL/DIO.o
- .bss           0x0080008c        0x0 ./Source/include/MCAL/PWM.o
- .bss           0x0080008c        0x0 ./Source/include/HAL/Btn_Handler.o
- .bss           0x0080008c        0x0 ./Source/include/HAL/LED.o
- .bss           0x0080008c        0x0 ./Source/croutine.o
- .bss           0x0080008c        0x0 ./Source/event_groups.o
- .bss           0x0080008c        0x0 ./Source/list.o
- .bss           0x0080008c        0x0 ./Source/queue.o
- .bss           0x0080008c        0x0 ./Source/tasks.o
- .bss           0x0080008c        0x0 ./Source/timers.o
- .bss           0x0080008c        0x0 ./main.o
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
- .bss           0x0080008c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x008000b2        0x0 ./Source/portable/MemMang/heap_1.o
+ .bss           0x008000b2        0x0 ./Source/portable/GCC/ATMega323/port.o
+ .bss           0x008000b2        0x0 ./Source/include/MCAL/DIO.o
+ .bss           0x008000b2        0x0 ./Source/include/MCAL/PWM.o
+ .bss           0x008000b2        0x0 ./Source/include/HAL/Btn_Handler.o
+ .bss           0x008000b2        0x0 ./Source/include/HAL/LED.o
+ .bss           0x008000b2        0x0 ./Source/croutine.o
+ .bss           0x008000b2        0x0 ./Source/event_groups.o
+ .bss           0x008000b2        0x0 ./Source/list.o
+ .bss           0x008000b2        0x0 ./Source/queue.o
+ .bss           0x008000b2        0x0 ./Source/tasks.o
+ .bss           0x008000b2        0x0 ./Source/timers.o
+ .bss           0x008000b2        0x0 ./main.o
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcpy.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strlen.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x008000b2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
  *(.bss*)
  .bss.xNextFreeByte
-                0x0080008c        0x2 ./Source/portable/MemMang/heap_1.o
- .bss.pucAlignedHeap.1670
-                0x0080008e        0x2 ./Source/portable/MemMang/heap_1.o
- .bss.ucHeap    0x00800090      0x5dc ./Source/portable/MemMang/heap_1.o
+                0x008000b2        0x2 ./Source/portable/MemMang/heap_1.o
+ .bss.pucAlignedHeap.1677
+                0x008000b4        0x2 ./Source/portable/MemMang/heap_1.o
+ .bss.ucHeap    0x008000b6      0x5dc ./Source/portable/MemMang/heap_1.o
  .bss.pxDelayedCoRoutineList
-                0x0080066c        0x2 ./Source/croutine.o
+                0x00800692        0x2 ./Source/croutine.o
  .bss.pxOverflowDelayedCoRoutineList
-                0x0080066e        0x2 ./Source/croutine.o
+                0x00800694        0x2 ./Source/croutine.o
  .bss.pxCurrentCoRoutine
-                0x00800670        0x2 ./Source/croutine.o
-                0x00800670                pxCurrentCoRoutine
+                0x00800696        0x2 ./Source/croutine.o
+                0x00800696                pxCurrentCoRoutine
  .bss.uxTopCoRoutineReadyPriority
-                0x00800672        0x1 ./Source/croutine.o
+                0x00800698        0x1 ./Source/croutine.o
  .bss.xCoRoutineTickCount
-                0x00800673        0x2 ./Source/croutine.o
+                0x00800699        0x2 ./Source/croutine.o
  .bss.xLastTickCount
-                0x00800675        0x2 ./Source/croutine.o
+                0x0080069b        0x2 ./Source/croutine.o
  .bss.xPassedTicks
-                0x00800677        0x2 ./Source/croutine.o
+                0x0080069d        0x2 ./Source/croutine.o
  .bss.pxReadyCoRoutineLists
-                0x00800679       0x12 ./Source/croutine.o
+                0x0080069f       0x12 ./Source/croutine.o
  .bss.xDelayedCoRoutineList1
-                0x0080068b        0x9 ./Source/croutine.o
+                0x008006b1        0x9 ./Source/croutine.o
  .bss.xDelayedCoRoutineList2
-                0x00800694        0x9 ./Source/croutine.o
+                0x008006ba        0x9 ./Source/croutine.o
  .bss.xPendingReadyCoRoutineList
-                0x0080069d        0x9 ./Source/croutine.o
+                0x008006c3        0x9 ./Source/croutine.o
  .bss.pxCurrentTCB
-                0x008006a6        0x2 ./Source/tasks.o
-                0x008006a6                pxCurrentTCB
+                0x008006cc        0x2 ./Source/tasks.o
+                0x008006cc                pxCurrentTCB
  .bss.uxDeletedTasksWaitingCleanUp
-                0x008006a8        0x1 ./Source/tasks.o
+                0x008006ce        0x1 ./Source/tasks.o
  .bss.uxCurrentNumberOfTasks
-                0x008006a9        0x1 ./Source/tasks.o
+                0x008006cf        0x1 ./Source/tasks.o
  .bss.xTickCount
-                0x008006aa        0x2 ./Source/tasks.o
+                0x008006d0        0x2 ./Source/tasks.o
  .bss.uxTopReadyPriority
-                0x008006ac        0x1 ./Source/tasks.o
+                0x008006d2        0x1 ./Source/tasks.o
  .bss.xSchedulerRunning
-                0x008006ad        0x1 ./Source/tasks.o
+                0x008006d3        0x1 ./Source/tasks.o
  .bss.xPendedTicks
-                0x008006ae        0x2 ./Source/tasks.o
+                0x008006d4        0x2 ./Source/tasks.o
  .bss.xYieldPending
-                0x008006b0        0x1 ./Source/tasks.o
+                0x008006d6        0x1 ./Source/tasks.o
  .bss.xNumOfOverflows
-                0x008006b1        0x1 ./Source/tasks.o
+                0x008006d7        0x1 ./Source/tasks.o
  .bss.uxTaskNumber
-                0x008006b2        0x1 ./Source/tasks.o
+                0x008006d8        0x1 ./Source/tasks.o
  .bss.xNextTaskUnblockTime
-                0x008006b3        0x2 ./Source/tasks.o
+                0x008006d9        0x2 ./Source/tasks.o
  .bss.xIdleTaskHandle
-                0x008006b5        0x2 ./Source/tasks.o
+                0x008006db        0x2 ./Source/tasks.o
  .bss.uxSchedulerSuspended
-                0x008006b7        0x1 ./Source/tasks.o
+                0x008006dd        0x1 ./Source/tasks.o
+ .bss.ulTaskSwitchedInTime
+                0x008006de        0x4 ./Source/tasks.o
+ .bss.ulTotalRunTime
+                0x008006e2        0x4 ./Source/tasks.o
  .bss.pxReadyTasksLists
-                0x008006b8       0x24 ./Source/tasks.o
+                0x008006e6       0x24 ./Source/tasks.o
  .bss.xDelayedTaskList1
-                0x008006dc        0x9 ./Source/tasks.o
+                0x0080070a        0x9 ./Source/tasks.o
  .bss.xDelayedTaskList2
-                0x008006e5        0x9 ./Source/tasks.o
+                0x00800713        0x9 ./Source/tasks.o
  .bss.pxDelayedTaskList
-                0x008006ee        0x2 ./Source/tasks.o
+                0x0080071c        0x2 ./Source/tasks.o
  .bss.pxOverflowDelayedTaskList
-                0x008006f0        0x2 ./Source/tasks.o
+                0x0080071e        0x2 ./Source/tasks.o
  .bss.xPendingReadyList
-                0x008006f2        0x9 ./Source/tasks.o
+                0x00800720        0x9 ./Source/tasks.o
  .bss.xTasksWaitingTermination
-                0x008006fb        0x9 ./Source/tasks.o
+                0x00800729        0x9 ./Source/tasks.o
  .bss.xTimerQueue
-                0x00800704        0x2 ./Source/timers.o
+                0x00800732        0x2 ./Source/timers.o
  .bss.xTimerTaskHandle
-                0x00800706        0x2 ./Source/timers.o
- .bss.xLastTime.2087
-                0x00800708        0x2 ./Source/timers.o
+                0x00800734        0x2 ./Source/timers.o
+ .bss.xLastTime.2100
+                0x00800736        0x2 ./Source/timers.o
  .bss.xActiveTimerList1
-                0x0080070a        0x9 ./Source/timers.o
+                0x00800738        0x9 ./Source/timers.o
  .bss.xActiveTimerList2
-                0x00800713        0x9 ./Source/timers.o
+                0x00800741        0x9 ./Source/timers.o
  .bss.pxCurrentTimerList
-                0x0080071c        0x2 ./Source/timers.o
+                0x0080074a        0x2 ./Source/timers.o
  .bss.pxOverflowTimerList
-                0x0080071e        0x2 ./Source/timers.o
+                0x0080074c        0x2 ./Source/timers.o
  .bss.xButtonTimer
-                0x00800720        0x2 ./main.o
-                0x00800720                xButtonTimer
+                0x0080074e        0x2 ./main.o
+                0x0080074e                xButtonTimer
  .bss.xLedBlinkingTimer
-                0x00800722        0x2 ./main.o
-                0x00800722                xLedBlinkingTimer
- .bss.led_mode  0x00800724        0x1 ./main.o
-                0x00800724                led_mode
+                0x00800750        0x2 ./main.o
+                0x00800750                xLedBlinkingTimer
+ .bss.led_mode  0x00800752        0x1 ./main.o
+                0x00800752                led_mode
  .bss.hazzred_button_pressed_counter
-                0x00800725        0x2 ./main.o
-                0x00800725                hazzred_button_pressed_counter
+                0x00800753        0x2 ./main.o
+                0x00800753                hazzred_button_pressed_counter
  .bss.ignition_button
-                0x00800727        0x1 ./main.o
-                0x00800727                ignition_button
+                0x00800755        0x1 ./main.o
+                0x00800755                ignition_button
  *(COMMON)
- COMMON         0x00800728        0xb ./main.o
-                0x00800728                R_button
-                0x00800729                task2ptr
-                0x0080072b                L_button
-                0x0080072c                task1ptr
-                0x0080072e                Hazzred_button
-                0x0080072f                left_button_pressed_counter
-                0x00800731                right_button_pressed_counter
-                0x00800733                PROVIDE (__bss_end, .)
-                0x0000656e                __data_load_start = LOADADDR (.data)
-                0x0000659a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800756       0x1f ./main.o
+                0x00800756                R_button
+                0x00800757                runtime_Status
+                0x0080076b                task2ptr
+                0x0080076d                L_button
+                0x0080076e                task1ptr
+                0x00800770                Hazzred_button
+                0x00800771                left_button_pressed_counter
+                0x00800773                right_button_pressed_counter
+                0x00800775                PROVIDE (__bss_end, .)
+                0x00007944                __data_load_start = LOADADDR (.data)
+                0x00007996                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800733        0x0
-                0x00800733                PROVIDE (__noinit_start, .)
+.noinit         0x00800775        0x0
+                0x00800775                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800733                PROVIDE (__noinit_end, .)
-                0x00800733                _end = .
-                0x00800733                PROVIDE (__heap_start, .)
+                0x00800775                PROVIDE (__noinit_end, .)
+                0x00800775                _end = .
+                0x00800775                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -886,7 +1039,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x942c
+.stab           0x00000000     0xa284
  *(.stab)
  .stab          0x00000000      0x7d4 ./Source/portable/MemMang/heap_1.o
  .stab          0x000007d4      0x840 ./Source/portable/GCC/ATMega323/port.o
@@ -901,22 +1054,22 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                 0x318 (size before relaxing)
  .stab          0x00001c20      0x96c ./Source/croutine.o
                                 0xcd8 (size before relaxing)
- .stab          0x0000258c      0xc6c ./Source/event_groups.o
-                               0x1134 (size before relaxing)
- .stab          0x000031f8      0x474 ./Source/list.o
+ .stab          0x0000258c      0xd50 ./Source/event_groups.o
+                               0x1218 (size before relaxing)
+ .stab          0x000032dc      0x474 ./Source/list.o
                                 0x870 (size before relaxing)
- .stab          0x0000366c     0x2070 ./Source/queue.o
-                               0x2574 (size before relaxing)
- .stab          0x000056dc     0x2634 ./Source/tasks.o
-                               0x2b2c (size before relaxing)
- .stab          0x00007d10     0x1194 ./Source/timers.o
-                               0x16bc (size before relaxing)
- .stab          0x00008ea4      0x588 ./main.o
-                                0xa98 (size before relaxing)
+ .stab          0x00003750     0x213c ./Source/queue.o
+                               0x2640 (size before relaxing)
+ .stab          0x0000588c     0x3084 ./Source/tasks.o
+                               0x357c (size before relaxing)
+ .stab          0x00008910     0x1218 ./Source/timers.o
+                               0x1740 (size before relaxing)
+ .stab          0x00009b28      0x75c ./main.o
+                                0xc6c (size before relaxing)
 
-.stabstr        0x00000000     0x57ff
+.stabstr        0x00000000     0x6125
  *(.stabstr)
- .stabstr       0x00000000     0x57ff ./Source/portable/MemMang/heap_1.o
+ .stabstr       0x00000000     0x6125 ./Source/portable/MemMang/heap_1.o
 
 .stab.excl
  *(.stab.excl)
